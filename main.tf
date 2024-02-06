@@ -36,6 +36,10 @@ resource "helm_release" "nfs_csi" {
   #   name  = "imagePullSecrets"
   #   value = var.storage_class.imagePullSecrets
   # }
+  set {
+    name  = "controller.replicas"
+    value = var.controller_replicas
+  }
 }
 
 resource "kubernetes_storage_class" "nfs_csi" {

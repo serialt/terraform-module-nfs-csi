@@ -47,3 +47,8 @@ variable "storage_class" {
 
 }
 
+variable "controller_replicas" {
+  type    = int
+  default = 2
+
+}
