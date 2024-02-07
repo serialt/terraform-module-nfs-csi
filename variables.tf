@@ -48,7 +48,7 @@ variable "storage_class" {
 }
 
 variable "controller_replicas" {
-  type    = int
+  type    = number
   default = 2
 
 }
