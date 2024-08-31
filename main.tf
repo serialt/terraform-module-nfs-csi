@@ -10,32 +10,32 @@ resource "helm_release" "nfs_csi" {
 
   set {
     name  = "image.nfs.repository"
-    value = "${var.storage_class.repository}/nfsplugin"
+    value = "${var.mirror}/nfsplugin"
   }
   set {
     name  = "image.csiProvisioner.repository"
-    value = "${var.storage_class.repository}/csi-provisioner"
+    value = "${var.mirror}/csi-provisioner"
   }
   set {
     name  = "image.csiSnapshotter.repository"
-    value = "${var.storage_class.repository}/csi-snapshotter"
+    value = "${var.mirror}/csi-snapshotter"
   }
   set {
     name  = "image.livenessProbe.repository"
-    value = "${var.storage_class.repository}/livenessprobe"
+    value = "${var.mirror}/livenessprobe"
   }
   set {
     name  = "image.nodeDriverRegistrar.repository"
-    value = "${var.storage_class.repository}/csi-node-driver-registrar"
+    value = "${var.mirror}/csi-node-driver-registrar"
   }
   set {
     name  = "image.externalSnapshotter.repository"
-    value = "${var.storage_class.repository}/snapshot-controller"
+    value = "${var.mirror}/snapshot-controller"
   }
-  # set {
-  #   name  = "imagePullSecrets"
-  #   value = var.storage_class.imagePullSecrets
-  # }
+  set {
+    name  = "imagePullSecrets"
+    value = var.imagePullSecrets
+  }
   set {
     name  = "controller.replicas"
     value = var.controller_replicas

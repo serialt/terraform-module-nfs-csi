@@ -12,8 +12,9 @@ module "nfs_csi" {
     reclaim_policy      = "Retain"
     volume_binding_mode = "Immediate"
     mountOptions        = ["nfsvers=4.1"]
-    repository          = "docker.io/serialt"
+
   }
+  mirror = "docker.io/serialt"
 }
 
 

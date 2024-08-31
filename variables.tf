@@ -24,18 +24,21 @@ variable "namespace" {
   default = ""
 }
 
-# variable "nfs_csi_values" {
-#   type    = any
-#   default = {}
-# }
+variable "mirror" {
+  type    = string
+  default = "registry.k8s.io/sig-storage"
+}
+
+variable "imagePullSecrets" {
+   type    = any 
+   default = []
+}
 
 variable "storage_class" {
   type = any
   default = {
     name             = "nfs-csi-sc"
     is_default_class = false
-    repository       = "registry.k8s.io/sig-storage"
-    imagePullSecrets = []
     parameters = {
       server = ""
       share  = "/"
